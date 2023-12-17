@@ -15,14 +15,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyJetpackFrontTheme {
                 StocksApp(
-                     onStockClick = {
-                         ContextCompat.startActivity(
-                             this,
-                             Intent(Intent.ACTION_VIEW, Uri.parse(it.imgLink)),
-                             null
-                         )
-                     }
-                 )
+                    onStockClick = {
+                        ContextCompat.startActivity(
+                            this,
+                            Intent(Intent.ACTION_VIEW, Uri.parse(it.imgLink)),
+                            null
+                        )
+                    }
+                )
             }
         }
     }

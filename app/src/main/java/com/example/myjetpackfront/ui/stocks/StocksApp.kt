@@ -19,9 +19,12 @@ fun StocksApp(
     onStockClick: (Stock) -> Unit
 ){
     val stocksViewModel: StocksViewModel = viewModel(factory = StocksViewModel.Factory)
-
     val searchWidgetState = stocksViewModel.searchWidgetState
     val searchTextState = stocksViewModel.searchTextState
+
+    val profileViewModel: ProfileViewModel = viewModel(factory = ProfileViewModel.Factory)
+    val profileWidgetState = profileViewModel.profileWidgetState
+
 
 
     Scaffold(
@@ -30,6 +33,7 @@ fun StocksApp(
             MainAppBar(
                 searchWidgetState = searchWidgetState.value,
                 searchTextState = searchTextState.value,
+                profileWidgetState = profileWidgetState.value,
                 onTextChange = {
                     stocksViewModel.updateSearchTextState(newValue = it)
                 },
@@ -43,7 +47,8 @@ fun StocksApp(
                     stocksViewModel.updateSearchWidgetState(newValue = SearchWidgetState.OPENED)
                 },
                 onProfileTriggered = {
-                    stocksViewModel.updateProfileState(newValue = SearchWidgetState.PROFILE)
+                    profileViewModel.updateUserWidgetState(newValue = ProfileWidgetState.OPENED)
+                    profileViewModel.getProfileInfo()
                 }
             )
         }
@@ -55,8 +60,10 @@ fun StocksApp(
         ) {
             HomeScreen(
                 stocksUiState = stocksViewModel.stocksUiState,
+                profileUiState = profileViewModel.profileUiState,
                 retryAction = {stocksViewModel.getStocks()},
-                onStockClick = onStockClick)
+                onStockClick = onStockClick
+            )
         }
     }
 }

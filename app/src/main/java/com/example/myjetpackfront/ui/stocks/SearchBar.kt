@@ -32,12 +32,16 @@ import com.example.myjetpackfront.R
 fun MainAppBar(
     searchWidgetState: SearchWidgetState,
     searchTextState: String,
+    profileWidgetState: ProfileWidgetState,
     onTextChange: (String) -> Unit,
     onCloseClicked: () -> Unit,
     onSearchClicked: (String) -> Unit,
     onSearchTriggered: () -> Unit,
     onProfileTriggered: () -> Unit
 ) {
+    if (profileWidgetState == ProfileWidgetState.OPENED) {
+        OpenedAppBarProfile(onProfileTriggered)
+    }
     when (searchWidgetState) {
         SearchWidgetState.CLOSED -> {
             ClosedAppBar (
@@ -51,12 +55,6 @@ fun MainAppBar(
                 onTextChange = onTextChange,
                 onCloseClicked = onCloseClicked,
                 onSearchClicked = onSearchClicked
-            )
-        }
-        SearchWidgetState.PROFILE -> {
-            ClosedAppBar (
-                onSearchClicked =  onSearchTriggered,
-                onProfileClicked = onProfileTriggered
             )
         }
     }
@@ -90,6 +88,21 @@ fun ClosedAppBar(
             }
         }
     )
+}
+
+
+@Composable
+fun OpenedAppBarProfile(
+    onCloseClicked: () -> Unit,
+) {
+    Surface (
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(56.dp),
+        color = MaterialTheme.colorScheme.primary
+    ) {
+        Text("Some...")
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

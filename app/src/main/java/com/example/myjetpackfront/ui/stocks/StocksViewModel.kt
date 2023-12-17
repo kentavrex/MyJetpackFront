@@ -22,8 +22,6 @@ sealed interface StocksUiState {
     data class Success(val stockSearch: List<Stock>): StocksUiState
     object Error: StocksUiState
     object Loading: StocksUiState
-    object Profile: StocksUiState
-    object ProfileClose: StocksUiState
 }
 
 class StocksViewModel(
@@ -48,14 +46,6 @@ class StocksViewModel(
     fun updateSearchTextState(newValue: String) {
         _searchTextState.value = newValue
     }
-
-    private val _profileState: MutableState<SearchWidgetState> =
-        mutableStateOf(value = SearchWidgetState.PROFILE)
-    val profileState: State<SearchWidgetState> = _profileState
-    fun updateProfileState(newValue: SearchWidgetState) {
-        _profileState.value = newValue
-    }
-
 
     init {
         getStocks( )
@@ -88,6 +78,5 @@ class StocksViewModel(
 
 enum class SearchWidgetState {
     OPENED,
-    CLOSED,
-    PROFILE
+    CLOSED
 }
