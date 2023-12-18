@@ -32,21 +32,15 @@ import com.example.myjetpackfront.R
 fun MainAppBar(
     searchWidgetState: SearchWidgetState,
     searchTextState: String,
-    profileWidgetState: ProfileWidgetState,
     onTextChange: (String) -> Unit,
     onCloseClicked: () -> Unit,
     onSearchClicked: (String) -> Unit,
     onSearchTriggered: () -> Unit,
-    onProfileTriggered: () -> Unit
 ) {
-    if (profileWidgetState == ProfileWidgetState.OPENED) {
-        OpenedAppBarProfile(onProfileTriggered)
-    }
     when (searchWidgetState) {
         SearchWidgetState.CLOSED -> {
             ClosedAppBar (
-                onSearchClicked =  onSearchTriggered,
-                onProfileClicked = onProfileTriggered
+                onSearchClicked =  onSearchTriggered
             )
         }
         SearchWidgetState.OPENED -> {
@@ -64,8 +58,7 @@ fun MainAppBar(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ClosedAppBar(
-    onSearchClicked: () -> Unit,
-    onProfileClicked: () -> Unit
+    onSearchClicked: () -> Unit
 ) {
     TopAppBar(
         title = {
@@ -76,13 +69,6 @@ fun ClosedAppBar(
                 Icon(
                     imageVector = Icons.Filled.Search,
                     contentDescription = "IconSearh",
-                    tint = Color.Black
-                )
-            }
-            IconButton(onClick = { onProfileClicked() }) {
-                Icon(
-                    imageVector = Icons.Filled.Person,
-                    contentDescription = "IconProfile",
                     tint = Color.Black
                 )
             }

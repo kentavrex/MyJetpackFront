@@ -19,7 +19,7 @@ interface UserService {
     @GET("users")
     suspend fun getUserInfo(): UserDto {
         return UserDto("Alex",
-            arrayListOf("X", "Y", "Z")
+            arrayListOf("AAPL", "CNK", "SBER", "SHELL")
         )
     }
 }

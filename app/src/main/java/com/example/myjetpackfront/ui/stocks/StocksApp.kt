@@ -23,9 +23,6 @@ fun StocksApp(
     val searchTextState = stocksViewModel.searchTextState
 
     val profileViewModel: ProfileViewModel = viewModel(factory = ProfileViewModel.Factory)
-    val profileWidgetState = profileViewModel.profileWidgetState
-
-
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -33,7 +30,6 @@ fun StocksApp(
             MainAppBar(
                 searchWidgetState = searchWidgetState.value,
                 searchTextState = searchTextState.value,
-                profileWidgetState = profileWidgetState.value,
                 onTextChange = {
                     stocksViewModel.updateSearchTextState(newValue = it)
                 },
@@ -46,10 +42,6 @@ fun StocksApp(
                 onSearchTriggered = {
                     stocksViewModel.updateSearchWidgetState(newValue = SearchWidgetState.OPENED)
                 },
-                onProfileTriggered = {
-                    profileViewModel.updateUserWidgetState(newValue = ProfileWidgetState.OPENED)
-                    profileViewModel.getProfileInfo()
-                }
             )
         }
     ) {

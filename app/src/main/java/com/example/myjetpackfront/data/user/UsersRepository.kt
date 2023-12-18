@@ -28,7 +28,7 @@ class NetworkUserRepository(
 //            )
 //        )
         val userResponse: UserDto = UserDto("Alex",
-            arrayListOf("X", "Y", "Z")
+            arrayListOf("AAPL", "CNK", "SBER", "SHELL")
             )
 //        val user = userResponse.map { data ->
 //            User(
@@ -38,7 +38,8 @@ class NetworkUserRepository(
 //            )
 //        }
 
-        return User(name="Alex", tickers=arrayListOf("X", "Y", "Z"))
+        return User(name="Alex", tickers=arrayListOf("AAPL", "CNK", "SBER", "SHELL")
+        )
 
     }
 }
