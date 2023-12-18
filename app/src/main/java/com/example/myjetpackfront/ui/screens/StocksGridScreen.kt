@@ -76,7 +76,7 @@ fun StocksCard(
                     .data(stock.imgLink?.replace("http", "https"))
                     .crossfade(true)
                     .build(),
-                error = painterResource(id = R.drawable.ic_book_96),
+                error = painterResource(id = R.drawable.stock_error),
                 placeholder = painterResource(id = R.drawable.loading_img),
                 contentDescription = stringResource(id = R.string.content_description),
                 contentScale = ContentScale.Crop    // способ масштабирования

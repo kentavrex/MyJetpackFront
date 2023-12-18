@@ -180,7 +180,7 @@ fun OpenedAppBar(
             ),
             colors = TextFieldDefaults.textFieldColors(
                 textColor = Color.Black,
-                cursorColor = Color.White.copy(alpha = 0.5f)
+                cursorColor = Color.Black.copy(alpha = 0.5f)
             )
         )
     }
