@@ -25,20 +25,23 @@ import com.example.myjetpackfront.ui.theme.MyJetpackFrontTheme
 import com.example.myjetpackfront.R
 import com.example.myjetpackfront.data.user.User
 import com.example.myjetpackfront.navigation.AppRouter
-import com.example.myjetpackfront.navigation.ButtonHandler
 import com.example.myjetpackfront.navigation.Screens
+
 
 @Composable
 fun ProfileIcon(onClick: () -> Unit) {
-    IconButton(onClick = { onClick() }) {
-        Icon(
-            imageVector = Icons.Filled.Person,
-            contentDescription = "IconProfile",
-            tint = Color.Black,
-            modifier = Modifier
-                .size(100.dp)
-                .clickable { onClick() }
-        )
+    Box(
+        modifier = Modifier
+            .clickable { onClick() }
+            .background(Color.Cyan, shape = CircleShape)
+    ) {
+        IconButton(onClick = { onClick() }) {
+            Icon(
+                imageVector = Icons.Filled.Person,
+                contentDescription = "IconProfile",
+                tint = Color.Black
+            )
+        }
     }
 }
 

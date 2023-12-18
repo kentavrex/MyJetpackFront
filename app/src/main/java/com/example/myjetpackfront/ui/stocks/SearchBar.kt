@@ -76,21 +76,6 @@ fun ClosedAppBar(
     )
 }
 
-
-@Composable
-fun OpenedAppBarProfile(
-    onCloseClicked: () -> Unit,
-) {
-    Surface (
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp),
-        color = MaterialTheme.colorScheme.primary
-    ) {
-        Text("Some...")
-    }
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OpenedAppBar(
