@@ -24,6 +24,6 @@ User interface implemented in Kotlin using the Jetpack Compose framework and Ret
 ### [Promo.mp4](https://drive.google.com/file/d/1AEoQsZrwmMFpm6OsAZKuHZ5iqOPYN8SS/view?usp=sharing)
 
 ![architecture](usage_data/architecture.jpg)
-![main](usage_data/main.png)
-![search](usage_data/search.png)
-![profile](usage_data/profile.jpg)
+<img src="usage_data/main.png" alt="main" width="250"/>
+<img src="usage_data/search.png" alt="search" width="250"/>
+<img src="usage_data/profile.jpg" alt="profile" width="250"/>
