@@ -27,8 +27,8 @@ class NetworkUserRepository(
 //                Data("NVDA", 67.89, "https://clck.ru/379ocV")
 //            )
 //        )
-        val userResponse: UserDto = UserDto("Alex",
-            arrayListOf("AAPL", "CNK", "SBER", "SHELL")
+        val userResponse: UserDto = UserDto("Амир",
+            arrayListOf("2шт: AAPL: 23.12▲", "45шт: CNK: 43.53▲", "23шт: GOOG: 143.52▼", "13шт: SHELL: 22.11▲")
             )
 //        val user = userResponse.map { data ->
 //            User(
@@ -38,7 +38,9 @@ class NetworkUserRepository(
 //            )
 //        }
 
-        return User(name="Alex", tickers=arrayListOf("AAPL", "CNK", "SBER", "SHELL")
+        return User(
+            name="Амир",
+            tickers=arrayListOf("2шт: AAPL: 23.12▲", "45шт: CNK: 43.53▲", "23шт: GOOG: 143.52▼", "13шт: SHELL: 22.11▲")
         )
 
     }

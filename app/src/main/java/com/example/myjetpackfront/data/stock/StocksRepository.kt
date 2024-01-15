@@ -1,6 +1,5 @@
 package com.example.myjetpackfront.data.stock
 
-import androidx.compose.ui.text.toUpperCase
 import com.example.myjetpackfront.Data
 import com.example.myjetpackfront.Stocks
 import com.example.myjetpackfront.network.StockService
@@ -23,29 +22,19 @@ class NetworkStockRepository(
 //        val stocksResponse = stockService.stockSearch(ticker, maxResult)
 //        val stocksResponse = stockService.stockSearch()
 
-//        println("Stocks response: $stocksResponse")
-//        val stocksResponse = Stocks(
-//            arrayListOf(
-//                Data("AAPL", 123.45, "https://clck.ru/379ocV"),
-//                Data("TSLA", 67.89, "https://clck.ru/379oaQ"),
-//                Data("INTC", 67.89, "https://clck.ru/379odp"),
-//                Data("MSFT", 67.89, "https://clck.ru/379ocV",),
-//                Data("NVDA", 67.89, "https://clck.ru/379ocV")
-//            )
-//        )
         val stocksResponse: Stocks = ticker?.let { specifiedTicker ->
             Stocks(
                 arrayListOf(
                     when (specifiedTicker.uppercase()) {
-                        "AAPL" -> Data(specifiedTicker, 123.45, "https://en.wikipedia.org/wiki/Apple_Inc.")
-                        "TSLA" -> Data(specifiedTicker, 67.89, "https://en.wikipedia.org/wiki/Tesla")
-                        "INTC" -> Data(specifiedTicker, 45.67, "https://en.wikipedia.org/wiki/Intel")
-                        "MSFT" -> Data(specifiedTicker, 89.12, "https://en.wikipedia.org/wiki/Microsoft")
-                        "GOOGL" -> Data(specifiedTicker, 34.56, "https://en.wikipedia.org/wiki/Alphabet_Inc.")
-                        "AMZN" -> Data(specifiedTicker, 78.90, "https://en.wikipedia.org/wiki/Amazon_(company)")
-                        "FB" -> Data(specifiedTicker, 56.78, "https://en.wikipedia.org/wiki/Meta_Platforms")
-                        "NFLX" -> Data(specifiedTicker, 90.12, "https://en.wikipedia.org/wiki/Netflix")
-                        "GOOG" -> Data(specifiedTicker, 45.67, "https://en.wikipedia.org/wiki/Google")
+                        "AAPL" -> Data(specifiedTicker, 123.45, "https://simplywall.st/stocks/us/tech/nasdaq-aapl/apple")
+                        "TSLA" -> Data(specifiedTicker, 67.89, "https://simplywall.st/stocks/us/automobiles/nasdaq-tsla/tesla")
+                        "INTC" -> Data(specifiedTicker, 45.67, "https://simplywall.st/stocks/us/semiconductors/nasdaq-intc/intel")
+                        "MSFT" -> Data(specifiedTicker, 89.12, "https://simplywall.st/stocks/us/software/nasdaq-msft/microsoft")
+                        "GOOGL" -> Data(specifiedTicker, 34.56, "https://simplywall.st/stocks/us/media/nasdaq-googl/alphabet")
+                        "AMZN" -> Data(specifiedTicker, 78.90, "https://simplywall.st/stocks/us/retail/nasdaq-amzn/amazoncom")
+                        "FB" -> Data(specifiedTicker, 56.78, "https://simplywall.st/stocks/us/media/nasdaq-meta/meta-platforms")
+                        "NFLX" -> Data(specifiedTicker, 90.12, "https://simplywall.st/stocks/us/media/nasdaq-nflx/netflix")
+                        "GOOG" -> Data(specifiedTicker, 45.67, "https://simplywall.st/stocks/us/media/nasdaq-googl/alphabet")
                         "IBM" -> Data(specifiedTicker, 78.90, "https://en.wikipedia.org/wiki/IBM")
                         "GS" -> Data(specifiedTicker, 123.45, "https://en.wikipedia.org/wiki/Goldman_Sachs")
                         "BA" -> Data(specifiedTicker, 67.89, "https://en.wikipedia.org/wiki/Boeing")
@@ -57,21 +46,21 @@ class NetworkStockRepository(
                         "KO" -> Data(specifiedTicker, 78.90, "https://en.wikipedia.org/wiki/The_Coca-Cola_Company")
                         "MMM" -> Data(specifiedTicker, 34.56, "https://en.wikipedia.org/wiki/3M")
                         "VZ" -> Data(specifiedTicker, 56.78, "https://en.wikipedia.org/wiki/Verizon_Communications")
-                        else -> Data(specifiedTicker, 0.0, "") // Default case or handle accordingly
+                        else -> Data(specifiedTicker, 0.0, "https://en.m.wikipedia.org/wiki/Clown") // Default case or handle accordingly
                     }
                 )
             )
         } ?: Stocks(
             arrayListOf(
-                Data("AAPL", 123.45, "https://en.wikipedia.org/wiki/Apple_Inc."),
-                Data("TSLA", 67.89, "https://en.wikipedia.org/wiki/Tesla,_Inc."),
-                Data("INTC", 45.67, "https://en.wikipedia.org/wiki/Intel"),
-                Data("MSFT", 89.12, "https://en.wikipedia.org/wiki/Microsoft"),
-                Data("GOOGL", 34.56, "https://en.wikipedia.org/wiki/Alphabet_Inc."),
-                Data("AMZN", 78.90, "https://en.wikipedia.org/wiki/Amazon_(company)"),
-                Data("FB", 56.78, "https://en.wikipedia.org/wiki/Meta_Platforms"),
-                Data("NFLX", 90.12, "https://en.wikipedia.org/wiki/Netflix"),
-                Data("GOOG", 45.67, "https://en.wikipedia.org/wiki/Google"),
+                Data("AAPL", 123.45, "https://simplywall.st/stocks/us/tech/nasdaq-aapl/apple"),
+                Data("TSLA", 67.89, "https://simplywall.st/stocks/us/automobiles/nasdaq-tsla/tesla"),
+                Data("INTC", 45.67, "https://simplywall.st/stocks/us/semiconductors/nasdaq-intc/intel"),
+                Data("MSFT", 89.12, "https://simplywall.st/stocks/us/software/nasdaq-msft/microsoft"),
+                Data("GOOGL", 34.56, "https://simplywall.st/stocks/us/media/nasdaq-googl/alphabet"),
+                Data("AMZN", 78.90, "https://simplywall.st/stocks/us/retail/nasdaq-amzn/amazoncom"),
+                Data("FB", 56.78, "https://simplywall.st/stocks/us/media/nasdaq-meta/meta-platforms"),
+                Data("NFLX", 90.12, "https://simplywall.st/stocks/us/media/nasdaq-nflx/netflix"),
+                Data("GOOG", 45.67, "https://simplywall.st/stocks/us/media/nasdaq-googl/alphabet"),
                 Data("IBM", 78.90, "https://en.wikipedia.org/wiki/IBM"),
                 Data("GS", 123.45, "https://en.wikipedia.org/wiki/Goldman_Sachs"),
                 Data("BA", 67.89, "https://en.wikipedia.org/wiki/Boeing"),
